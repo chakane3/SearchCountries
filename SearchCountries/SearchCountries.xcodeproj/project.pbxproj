@@ -99,12 +99,7 @@
 		94DD94AF278CB4BE005965EA /* SearchCountries */ = {
 			isa = PBXGroup;
 			children = (
-				94DD94B0278CB4BE005965EA /* AppDelegate.swift */,
-				94DD94B2278CB4BE005965EA /* SceneDelegate.swift */,
-				94DD94B4278CB4BE005965EA /* ViewController.swift */,
-				94DD94B6278CB4BE005965EA /* Main.storyboard */,
-				94DD94B9278CB4BF005965EA /* Assets.xcassets */,
-				94DD94BB278CB4BF005965EA /* LaunchScreen.storyboard */,
+				94DD94E0278CBD19005965EA /* Supporting Files */,
 				94DD94BE278CB4BF005965EA /* Info.plist */,
 			);
 			path = SearchCountries;
@@ -125,6 +120,19 @@
 				94DD94D3278CB4C0005965EA /* SearchCountriesUITestsLaunchTests.swift */,
 			);
 			path = SearchCountriesUITests;
+			sourceTree = "<group>";
+		};
+		94DD94E0278CBD19005965EA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94DD94B0278CB4BE005965EA /* AppDelegate.swift */,
+				94DD94B2278CB4BE005965EA /* SceneDelegate.swift */,
+				94DD94B4278CB4BE005965EA /* ViewController.swift */,
+				94DD94B6278CB4BE005965EA /* Main.storyboard */,
+				94DD94B9278CB4BF005965EA /* Assets.xcassets */,
+				94DD94BB278CB4BF005965EA /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
