@@ -16,6 +16,12 @@
 		94DD94C8278CB4C0005965EA /* SearchCountriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD94C7278CB4C0005965EA /* SearchCountriesTests.swift */; };
 		94DD94D2278CB4C0005965EA /* SearchCountriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD94D1278CB4C0005965EA /* SearchCountriesUITests.swift */; };
 		94DD94D4278CB4C0005965EA /* SearchCountriesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD94D3278CB4C0005965EA /* SearchCountriesUITestsLaunchTests.swift */; };
+		94DD94E3278CBDB4005965EA /* CountrySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD94E2278CBDB4005965EA /* CountrySearch.swift */; };
+		94DD94E5278CBE01005965EA /* CountryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD94E4278CBE01005965EA /* CountryDetail.swift */; };
+		94DD94EA278CBE38005965EA /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD94E9278CBE38005965EA /* Weather.swift */; };
+		94DD94EC278CBE42005965EA /* CountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD94EB278CBE42005965EA /* CountryInfo.swift */; };
+		94DD94EF278CBE58005965EA /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD94EE278CBE58005965EA /* NetworkRequest.swift */; };
+		94DD94F2278CC8C5005965EA /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD94F1278CC8C5005965EA /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		94DD94CD278CB4C0005965EA /* SearchCountriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchCountriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94DD94D1278CB4C0005965EA /* SearchCountriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountriesUITests.swift; sourceTree = "<group>"; };
 		94DD94D3278CB4C0005965EA /* SearchCountriesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCountriesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		94DD94E2278CBDB4005965EA /* CountrySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySearch.swift; sourceTree = "<group>"; };
+		94DD94E4278CBE01005965EA /* CountryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetail.swift; sourceTree = "<group>"; };
+		94DD94E9278CBE38005965EA /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		94DD94EB278CBE42005965EA /* CountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfo.swift; sourceTree = "<group>"; };
+		94DD94EE278CBE58005965EA /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		94DD94F1278CC8C5005965EA /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,10 @@
 		94DD94AF278CB4BE005965EA /* SearchCountries */ = {
 			isa = PBXGroup;
 			children = (
+				94DD94F0278CC88D005965EA /* Extensions */,
+				94DD94ED278CBE47005965EA /* Network */,
+				94DD94E6278CBE14005965EA /* Models */,
+				94DD94E1278CBD83005965EA /* Views */,
 				94DD94E0278CBD19005965EA /* Supporting Files */,
 				94DD94BE278CB4BF005965EA /* Info.plist */,
 			);
@@ -133,6 +149,40 @@
 				94DD94BB278CB4BF005965EA /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94DD94E1278CBD83005965EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94DD94E2278CBDB4005965EA /* CountrySearch.swift */,
+				94DD94E4278CBE01005965EA /* CountryDetail.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		94DD94E6278CBE14005965EA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				94DD94E9278CBE38005965EA /* Weather.swift */,
+				94DD94EB278CBE42005965EA /* CountryInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		94DD94ED278CBE47005965EA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				94DD94EE278CBE58005965EA /* NetworkRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		94DD94F0278CC88D005965EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				94DD94F1278CC8C5005965EA /* UIImageView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,9 +316,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94DD94F2278CC8C5005965EA /* UIImageView+Extension.swift in Sources */,
+				94DD94E5278CBE01005965EA /* CountryDetail.swift in Sources */,
 				94DD94B5278CB4BE005965EA /* ViewController.swift in Sources */,
 				94DD94B1278CB4BE005965EA /* AppDelegate.swift in Sources */,
 				94DD94B3278CB4BE005965EA /* SceneDelegate.swift in Sources */,
+				94DD94EC278CBE42005965EA /* CountryInfo.swift in Sources */,
+				94DD94E3278CBDB4005965EA /* CountrySearch.swift in Sources */,
+				94DD94EF278CBE58005965EA /* NetworkRequest.swift in Sources */,
+				94DD94EA278CBE38005965EA /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
