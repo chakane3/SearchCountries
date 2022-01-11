@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="countryCell" id="hUf-an-x93">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="countryCell" id="hUf-an-x93" customClass="CountryCell" customModule="SearchCountries" customModuleProvider="target">
                                         <rect key="frame" x="34" y="0.0" width="346" height="323"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="W1k-ei-J1U">
@@ -77,6 +77,10 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="346" height="323"/>
                                         <connections>
+                                            <outlet property="countryCapitalLabel" destination="yA9-iD-mP3" id="TVD-MZ-vrB"/>
+                                            <outlet property="countryName" destination="LGh-4N-XxY" id="EHb-AG-bxb"/>
+                                            <outlet property="countryPopulationLabel" destination="08S-jt-Vpp" id="v9W-90-Cmf"/>
+                                            <outlet property="imageView" destination="ihL-g8-rBo" id="XmK-aR-JZ2"/>
                                             <segue destination="5Qk-mX-3hq" kind="show" id="7oH-wB-hHV"/>
                                         </connections>
                                     </collectionViewCell>
@@ -100,6 +104,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search Country" id="TR0-eA-Z3h"/>
+                    <connections>
+                        <outlet property="collectionView" destination="tcD-Rr-iG9" id="SIx-nI-qW4"/>
+                        <outlet property="searchBar" destination="aHS-5j-0ky" id="1Q8-EN-3Kh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

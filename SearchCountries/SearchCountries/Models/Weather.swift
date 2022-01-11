@@ -26,6 +26,8 @@ extension WeatherID {
         }
         let request = URLRequest(url: url)
         
+        
+        // use our URLReuest instance to capture data
         NetworkRequest.shared.performDataTask(with: request) { (result) in
             switch result {
             case .failure(let networkError):
@@ -33,6 +35,7 @@ extension WeatherID {
                 
             case .success(let data):
                 do {
+                    // try do decode our JSON
                     let weatherID = try JSONDecoder().decode(WeatherID.self, from: data)
                     completion(.success(weatherID))
                 } catch {
@@ -64,7 +67,33 @@ struct ConsolidatedWeather: Codable {
 }
 
 extension WeatherInfo {
-    
+    static func getWeatherInfo(for weatherID: Int, completion: @escaping (Result<WeatherInfo, NetworkError>) -> ()) {
+        let endpoint = "https://www.metaweather.com/api/location/\(weatherID)"
+        
+        // create a URLRequest instance
+        guard let url = URL(string: endpoint) else {
+            completion(.failure(.badURL(endpoint)))
+            return
+        }
+        let request = URLRequest(url: url)
+        
+        NetworkRequest.shared.performDataTask(with: request) { (result) in
+            switch result {
+            case .failure(let networkError):
+                completion(.failure(.networkClientError(networkError)))
+            case.success(let data):
+                do {
+                    
+                    // try to decode our JSON
+                    let weatherInfo = try JSONDecoder().decode(WeatherInfo.self, from: data)
+                    completion(.success(weatherInfo))
+                } catch {
+                    completion(.failure(.decodingError(error)))
+                }
+            }
+            
+        }
+    }
 }
 
 
