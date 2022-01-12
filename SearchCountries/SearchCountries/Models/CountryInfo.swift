@@ -11,11 +11,18 @@ import Foundation
 
 struct Country: Codable {
     let name: NameInfo
+    let population: Int
+    let capital: [String]?
+    let flags: FlagImage
 }
 
 struct NameInfo: Codable {
-    let common: String  // this name will be used to get our flag image
+    let common: String
     let official: String
+}
+
+struct FlagImage: Codable {
+    let png: String
 }
 
 

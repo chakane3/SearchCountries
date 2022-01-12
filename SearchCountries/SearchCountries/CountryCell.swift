@@ -13,20 +13,26 @@ class CountryCell: UICollectionViewCell {
     @IBOutlet weak var countryCapitalLabel: UILabel!
     @IBOutlet weak var countryPopulationLabel: UILabel!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = 20.0
+    }
     
     func configureCell(for country: Country) {
-        countryName.text = country.name.common
-//        countryCapitalLabel.text = country.capital[0]
-//        countryPopulationLabel.text = "\(country.population)"
-//
-//        imageView.getImage(with: country.flags.png) { (result) in
-//            switch result {
-//            case .failure(let imageError):
-//                print("error in getting image: \(imageError)")
-//
-//            case .success(let data):
-//                self.imageView.image = data
-//            }
-//        }
+        countryName.text = "\(country.name.common)"
+        countryCapitalLabel.text = "Capital: \(country.capital?[0] ?? "no capital")"
+        countryPopulationLabel.text = "Population: \(country.population) people"
+
+        imageView.getImage(with: country.flags.png) { (result) in
+            switch result {
+            case .failure(let imageError):
+                print("error in getting image: \(imageError)")
+
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.imageView.image = data
+                }
+            }
+        }
     }
 }

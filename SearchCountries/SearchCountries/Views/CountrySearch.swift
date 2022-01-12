@@ -18,7 +18,6 @@ class CountrySearch: UIViewController {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-            
         }
     }
     
@@ -69,8 +68,8 @@ extension CountrySearch: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxWidth: CGFloat = UIScreen.main.bounds.size.width
-        let itemWidth: CGFloat = maxWidth * 0.80
-        return CGSize(width: itemWidth, height: itemWidth)
+        let itemWidth: CGFloat = maxWidth * 0.7
+        return CGSize(width: itemWidth+32.0, height: itemWidth)
     }
     
 }
