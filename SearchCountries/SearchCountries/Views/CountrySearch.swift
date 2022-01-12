@@ -12,7 +12,7 @@ class CountrySearch: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-    // CountryInfo Array we use to populate data from user query
+    // Country array we use to populate country name, population, capital data
     var countries = [Country]() {
         didSet {
             DispatchQueue.main.async {
@@ -21,7 +21,16 @@ class CountrySearch: UIViewController {
         }
     }
     
-    var countriesWeather = [WeatherInfo]() {
+    // WeatherID array we use to populate weatherID from weatherINFO
+    var countriesWeatherID = [WeatherID]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
+    var countriesWeatherInfo = [WeatherInfo]() {
         didSet {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -59,9 +68,9 @@ extension CountrySearch: UICollectionViewDataSource {
         }
         
         let countryInfo = countries[indexPath.row]
-        let countryWeather = countriesWeather[indexPath.row]
+//        let countryWeather = countriesWeather[indexPath.row]
         cell.configureCountryInfoCell(for: countryInfo)
-        cell.configureCountryWeatherCell(for: countryWeather)
+//        cell.configureCountryWeatherCell(for: countryWeather)
         return cell
     }
     
