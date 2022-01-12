@@ -21,6 +21,14 @@ class CountrySearch: UIViewController {
         }
     }
     
+    var countriesWeather = [WeatherInfo]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -50,8 +58,10 @@ extension CountrySearch: UICollectionViewDataSource {
             fatalError("Error, check reuseIdentityInspector or CellFile")
         }
         
-        let country = countries[indexPath.row]
-        cell.configureCell(for: country)
+        let countryInfo = countries[indexPath.row]
+        let countryWeather = countriesWeather[indexPath.row]
+        cell.configureCountryInfoCell(for: countryInfo)
+        cell.configureCountryWeatherCell(for: countryWeather)
         return cell
     }
     
@@ -68,8 +78,8 @@ extension CountrySearch: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxWidth: CGFloat = UIScreen.main.bounds.size.width
-        let itemWidth: CGFloat = maxWidth * 0.7
-        return CGSize(width: itemWidth+32.0, height: itemWidth)
+        let itemWidth: CGFloat = maxWidth * 0.8
+        return CGSize(width: itemWidth, height: itemWidth)
     }
     
 }

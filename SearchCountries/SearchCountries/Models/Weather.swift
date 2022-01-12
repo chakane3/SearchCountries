@@ -53,7 +53,7 @@ struct WeatherInfo: Codable {
     let sun_set: String
     let title: String
     let timezone: String
-    let consolidated_weather: [ConsolidatedWeather]
+    let consolidated_weather: ConsolidatedWeather
 }
 
 struct ConsolidatedWeather: Codable {

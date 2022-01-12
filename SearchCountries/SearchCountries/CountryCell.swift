@@ -12,13 +12,24 @@ class CountryCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var countryCapitalLabel: UILabel!
     @IBOutlet weak var countryPopulationLabel: UILabel!
+    @IBOutlet weak var currentTempLabel: UILabel!
+    @IBOutlet weak var highTempLabel: UILabel!
+    @IBOutlet weak var lowTempLabel: UILabel!
+    @IBOutlet weak var skiesLabel: UILabel!
+    @IBOutlet weak var windSpeedDirectionLabel: UILabel!
+    @IBOutlet weak var visibilityLabel: UILabel!
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = 20.0
     }
     
-    func configureCell(for country: Country) {
+    func configureCountryWeatherCell(for country: WeatherInfo) {
+        currentTempLabel.text = "Current temp: \(country.consolidated_weather.the_temp)"
+    }
+    
+    func configureCountryInfoCell(for country: Country) {
         countryName.text = "\(country.name.common)"
         countryCapitalLabel.text = "Capital: \(country.capital?[0] ?? "no capital")"
         countryPopulationLabel.text = "Population: \(country.population) people"

@@ -9,27 +9,24 @@ import XCTest
 @testable import SearchCountries
 
 class SearchCountriesTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testWeatherAPI() {
+        var searchTerm = "new york"
+        searchTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let endpoint = "https://www.metaweather.com/api/location/search/?query=\(searchTerm)"
+        let exp = XCTestExpectation(description: "data OK!")
+        guard let url = URL(string: endpoint) else {
+            XCTFail("bad url")
+            return
+        }
+        let request = URLRequest(url: url)
+        NetworkRequest.shared.performDataTask(with: request) { (result) in
+            switch result {
+            case .failure(let networkError):
+                XCTFail("Network Client Error")
+            case .success(let data):
+                XCTAssertGreaterThan(data.count, 1000)
+                exp.fulfill()
+            }
         }
     }
 
