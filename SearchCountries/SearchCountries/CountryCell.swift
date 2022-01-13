@@ -13,8 +13,6 @@ class CountryCell: UICollectionViewCell {
     @IBOutlet weak var countryCapitalLabel: UILabel!
     @IBOutlet weak var countryPopulationLabel: UILabel!
 
-    
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = 20.0

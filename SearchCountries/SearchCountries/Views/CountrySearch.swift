@@ -21,23 +21,6 @@ class CountrySearch: UIViewController {
         }
     }
     
-    // WeatherID array we use to populate weatherID from weatherINFO
-    var countriesWeatherID = [WeatherID]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-    }
-    
-    var countriesWeatherInfo = [WeatherInfo]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -55,6 +38,14 @@ class CountrySearch: UIViewController {
                 self.countries = data
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let countryDetail = segue.destination as? CountryDetail, let indexPath = collectionView.indexPathsForSelectedItems else {
+            fatalError("Check identity inspector")
+        }
+        let country = countries[indexPath.capacity]
+        countryDetail.country = country
     }
 }
 
