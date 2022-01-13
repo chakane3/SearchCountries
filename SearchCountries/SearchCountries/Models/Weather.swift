@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - (struct) Get weatherID from user query (country will only show capital's weather)
+// MARK: - (struct) Get weatherID from user query. GetWeatherId(for: String)
 struct WeatherID: Codable {
     let title: String
     let woeid: Int
