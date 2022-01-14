@@ -9,13 +9,12 @@ import Foundation
 
 // MARK: - (struct) Get weatherID from user query. GetWeatherId(for: String)
 struct WeatherID: Codable {
-    let woeID: Int
+    let woeid: Int
 }
 
-
 extension WeatherID {
-    static func getWeatherID(for weatherQuery: String, completion: @escaping (Result<Int, NetworkError>) -> ()) {
-        let weatherQuery = weatherQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
+    static func getWeatherID(for weatherQuery: String, completion: @escaping (Result<[WeatherID], NetworkError>) -> ()) {
+        let weatherQuery = weatherQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let endpoint = "https://www.metaweather.com/api/location/search/?query=\(weatherQuery)"
         
         
@@ -36,8 +35,8 @@ extension WeatherID {
             case .success(let data):
                 do {
                     // try do decode our JSON
-                    let weatherID = try JSONDecoder().decode(WeatherID.self, from: data)
-                    completion(.success(weatherID.woeID))
+                    let weatherID = try JSONDecoder().decode([WeatherID].self, from: data)
+                    completion(.success(weatherID))
                 } catch {
                     completion(.failure(.decodingError(error)))
                 }
@@ -83,7 +82,6 @@ extension WeatherInfo {
                 completion(.failure(.networkClientError(networkError)))
             case.success(let data):
                 do {
-                    
                     // try to decode our JSON
                     let weatherInfo = try JSONDecoder().decode(WeatherInfo.self, from: data)
                     completion(.success(weatherInfo))

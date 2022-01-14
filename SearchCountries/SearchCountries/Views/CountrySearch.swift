@@ -41,10 +41,10 @@ class CountrySearch: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let countryDetail = segue.destination as? CountryDetail, let indexPath = collectionView.indexPathsForSelectedItems else {
+        guard let countryDetail = segue.destination as? CountryDetail, let indexPath = collectionView.indexPathsForSelectedItems?.first else {
             fatalError("Check identity inspector")
         }
-        let country = countries[indexPath.capacity]
+        let country = countries[indexPath.row]
         countryDetail.country = country
     }
 }

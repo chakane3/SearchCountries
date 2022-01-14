@@ -14,13 +14,34 @@ class CountryDetail: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var conversionLabel: UILabel!
     
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    
     var country: Country?
-    var countryWeatherID: Int?
+    var countryWeatherID: [WeatherID]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getCountryWeatherID(for: country?.capital?[0] ?? "no ID")
-        print(countryWeatherID)
+        updateUI()
+        
+        getCountryWeatherID(for: country?.capital?.first ?? "no ID")
+        
+        
+    }
+    
+    func updateUI() {
+        capitalLabel.text = "Capital: \(country?.capital?.first ?? "no capital")"
+        populationLabel.text = "Population: \(country?.population ?? 0)"
+        
+        flagImage.getImage(with: country?.flags.png ?? "no img") { (result) in
+            switch result {
+            case .failure(let networkError):
+                print("\(networkError)")
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.flagImage.image = data
+                }
+            }
+        }
     }
     
     func getCountryWeatherID(for country: String) {
@@ -30,6 +51,7 @@ class CountryDetail: UIViewController {
                 print("NetworkError: \(networkError)")
             case .success(let data):
                 self.countryWeatherID = data
+                print(self.countryWeatherID)
             }
         }
     }

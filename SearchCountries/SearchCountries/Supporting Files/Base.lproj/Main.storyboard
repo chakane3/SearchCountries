@@ -259,6 +259,7 @@
                     <connections>
                         <outlet property="capitalLabel" destination="51g-gD-p5Q" id="u9P-F1-ltf"/>
                         <outlet property="conversionLabel" destination="nhD-UK-gaG" id="XrQ-gv-GCO"/>
+                        <outlet property="currentTimeLabel" destination="qKh-vE-WiG" id="ZfS-FX-0Vm"/>
                         <outlet property="flagImage" destination="7Qb-fk-TU1" id="JZ9-7m-Fvd"/>
                         <outlet property="populationLabel" destination="B8s-lV-BLi" id="jdy-ys-ZQU"/>
                         <outlet property="textField" destination="T7i-zQ-1rC" id="qfj-sY-cRp"/>
