@@ -22,9 +22,9 @@ class CountryDetail: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-        
+        print(country?.capital?.first ?? "no ID")
         getCountryWeatherID(for: country?.capital?.first ?? "no ID")
-        
+        print(countryWeatherID)
         
     }
     
@@ -49,9 +49,10 @@ class CountryDetail: UIViewController {
             switch result {
             case .failure(let networkError):
                 print("NetworkError: \(networkError)")
+                
             case .success(let data):
                 self.countryWeatherID = data
-                print(self.countryWeatherID)
+                print("This one sir: \(data)")
             }
         }
     }
